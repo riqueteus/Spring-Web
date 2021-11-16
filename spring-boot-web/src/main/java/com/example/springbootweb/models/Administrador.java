@@ -23,9 +23,6 @@ public class Administrador {
     @Column(name = "idade", nullable = false)
     private int idade;
 
-    @Column(name = "senha", nullable = false)
-    private String senha;
-
     @Column(name = "endereco", nullable = false)
     private String endereco;
 
@@ -59,14 +56,6 @@ public class Administrador {
 
     public void setIdade(int idade) {
         this.idade = idade;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     public String getEndereco() {

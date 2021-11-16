@@ -5,29 +5,29 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Cadastro de Administrador(a)</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Alteração de Administrador(a)</h1>
                     <p class="mb-4">
-                        Preencha os dados para inserir um novo Administrador(a)
+                        Preencha os dados que deseja alterar do Administrador(a)
                     </p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4" style="padding: 30px;">
-                        <form method="post" action="/administradores/criar" onsubmit="return confirm('Confirma a ação?')">
+                        <form method="post" th:action="@{'/administradores/' + ${administrador.id} + '/atualizar'}" >
                             <div class="form-group">
                               <label for="nome">Nome</label>
-                              <input type="text" class="form-control" required id="nome" name="nome" placeholder="Digite o seu nome">
+                              <input type="text" class="form-control" th:value="${administrador?.nome}" required id="nome" name="nome" placeholder="Digite o seu nome">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" required id="email" name="email" placeholder="Digite o seu email">
+                                <input type="email" class="form-control" th:value="${administrador?.email}" required id="email" name="email" placeholder="Digite o seu email">
                               </div>
                               <div class="form-group">
                                 <label for="idade">Idade</label>
-                                <input type="idade" class="form-control" required id="idade" name="idade" placeholder="Digite o sua idade">
+                                <input type="idade" class="form-control" th:value="${administrador?.idade}" required id="idade" name="idade" placeholder="Digite o sua idade">
                               </div>
                               <div class="form-group">
                                 <label for="endereco">Endereço</label>
-                                <input type="text" class="form-control" required id="endereco" name="endereco" placeholder="Digite o seu endereço">
+                                <input type="text" class="form-control" th:value="${administrador?.endereco}" required id="endereco" name="endereco" placeholder="Digite o seu endereço">
                               </div>
                             
                             <button type="submit" class="btn btn-primary">Enviar</button>
