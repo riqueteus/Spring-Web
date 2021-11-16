@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 
 @Controller
@@ -22,7 +24,24 @@ public class AdministradoresController {
         List<Administrador> administradores = (List<Administrador>)repository.findAll();
         model.addAttribute("administradores", administradores);
         return "administradores/index";
-
     }
-    
+
+    @GetMapping("/administradores/cadastro")
+    public String cadastro(){
+        return "administradores/cadastro";
+}
+
+    @PostMapping("/administradores/criar")
+    public String criar(Administrador administrador){
+        repository.save(administrador);
+        return "redirect:/administradores";
+
+}
+
+    @GetMapping("/administradores/{id}/excluir")
+    public String excluir(@PathVariable int id){
+        repository.deleteById(id);
+        return "redirect:/administradores";
+}
+
 }

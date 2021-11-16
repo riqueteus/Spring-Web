@@ -20,11 +20,14 @@ public class Administrador {
     @Column(name = "email" , length = 100, nullable = false)
     private String email;
 
-    @Column(name = "idade")
+    @Column(name = "idade", nullable = false)
     private int idade;
 
     @Column(name = "senha", nullable = false)
     private String senha;
+
+    @Column(name = "endereco", nullable = false)
+    private String endereco;
 
     public int getId() {
         return id;
@@ -64,6 +67,14 @@ public class Administrador {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
     
 }

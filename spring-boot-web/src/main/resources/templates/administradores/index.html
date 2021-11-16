@@ -7,13 +7,14 @@
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Administradores</h1>
                     <p class="mb-4">
-                        Aqui irá listar os Administradores do meu sistema
+                        Administradores Cadastrados no Sistema da Ecology
                     </p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Lista de Administradores</h6>
+                            <h6 class="m-0 font-weight-bold text-primary" style="display: inline-block;">Lista de Administradores</h6>
+                            <a href="/administradores/cadastro" class="btn btn-primary" style="margin-left: 30px">Cadastrar Administrador(a)</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -24,6 +25,7 @@
                                             <th>Nome</th>
                                             <th>Email</th>
                                             <th>Idade</th>
+                                            <th>Endereço</th>
                                             <th></th>
                                             <th></th>
                                         </tr>
@@ -34,6 +36,7 @@
                                             <th>Nome</th>
                                             <th>Email</th>
                                             <th>Idade</th>
+                                            <th>Endereço</th>
                                             <th></th>
                                             <th></th>
                                         </tr>
@@ -44,8 +47,9 @@
                                             <td th:text="${administrador.nome}"></td>
                                             <td th:text="${administrador.email}"></td>
                                             <td th:text="${administrador.idade}"></td>
+                                            <td th:text="${administrador.endereco}"></td>
                                             <td><a href="#" class="btn btn-warning">Alterar</a></td>
-                                            <td><a href="#" class="btn btn-danger">Excluir</a></td>
+                                            <td><a href="#" th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \'' + @{/administradores/{id}(id=${administrador.id})} + '/excluir\'} '" class="btn btn-danger">Excluir</a></td>
                                         </tr>
                                         
                                     </tbody>
