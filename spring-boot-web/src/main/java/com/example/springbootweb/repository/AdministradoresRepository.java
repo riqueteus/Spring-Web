@@ -8,5 +8,8 @@ import org.springframework.data.repository.CrudRepository;
 public interface AdministradoresRepository extends CrudRepository<Administrador, Integer>{
     @Query(value="select CASE WHEN count(1) > 0 'true' ELSE 'false' END from administradores where id = :id", nativeQuery = true )
     public boolean exist(int id); //método para validar se o id existe
+
+    @Query(value="select * from administradores where email = :email and senha =:senha", nativeQuery = true )
+    public Administrador Login (String email, String senha);
 }
 //exemplo de herança com o extends e utilização do interface para herdar.

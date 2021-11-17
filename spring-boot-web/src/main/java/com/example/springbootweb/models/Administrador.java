@@ -26,6 +26,9 @@ public class Administrador {
     @Column(name = "endereco", nullable = false)
     private String endereco;
 
+    @Column(name = "senha", nullable = false)
+    private String senha;
+
     public int getId() {
         return id;
     }
@@ -65,5 +68,16 @@ public class Administrador {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
+
+    public String getSenha() {
+        return senha;//.substring(0, 2) + "*****";  mostrar os dois digitos iniciais da senha 
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    
+    
     
 }
