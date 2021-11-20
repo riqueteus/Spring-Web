@@ -1,7 +1,10 @@
 package com.example.springbootweb.controllers;
 
+import javax.servlet.http.HttpServletResponse;
+
 import com.example.springbootweb.models.Administrador;
 import com.example.springbootweb.repository.AdministradoresRepository;
+import com.example.springbootweb.service.CookieService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,9 +24,10 @@ public class LoginController {
     }
 
     @PostMapping("/logar")
-    public String logar(Model model, Administrador admParam, String lembrar){
+    public String logar(Model model, Administrador admParam, String lembrar, HttpServletResponse response){
         Administrador adm = this.repository.Login(admParam.getEmail(), admParam.getSenha());
         if(adm != null){
+            CookieService.setCookie(response, "usuariosId", String.valueOf(adm.getId()), 10 );
             return "redirect:/";
         }
         model.addAttribute("erro", "Usuário ou Senha Inválidos");
