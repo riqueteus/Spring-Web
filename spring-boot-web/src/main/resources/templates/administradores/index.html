@@ -26,7 +26,6 @@
                                             <th>Email</th>
                                             <th>Idade</th>
                                             <th>Endereço</th>
-                                            <th>Senha</th>
                                             <th></th>
                                             <th></th>
                                         </tr>
@@ -38,7 +37,6 @@
                                             <th>Email</th>
                                             <th>Idade</th>
                                             <th>Endereço</th>
-                                            <th>Senha</th>
                                             <th></th>
                                             <th></th>
                                         </tr>
@@ -50,7 +48,6 @@
                                             <td th:text="${administrador.email}"></td>
                                             <td th:text="${administrador.idade}"></td>
                                             <td th:text="${administrador.endereco}"></td>
-                                            <td th:text="${administrador.senha}"></td>
                                             <td><a th:href="@{'/administradores/' + ${administrador.id}}" class="btn btn-warning">Alterar</a></td>
                                             <td><a href="#" th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \'' + @{/administradores/{id}(id=${administrador.id})} + '/excluir\'} '" class="btn btn-danger">Excluir</a></td>
                                         </tr>
